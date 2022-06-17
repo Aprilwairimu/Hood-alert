@@ -5,7 +5,10 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 # Create your views here.
 
+def landing(request):
 
+    return render(request, 'landing.html')
+    
 def home(request):
 
     return render(request, 'home.html')
@@ -41,3 +44,8 @@ def login_user(request):
 def logout(request):
     logout(request)
     return redirect('home')
+
+
+def profile(request):
+    profile=Profile.objects.all()
+    return render(request, 'profile.html',{'profile': profile})
