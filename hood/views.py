@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate,login,logout
 def landing(request):
 
     return render(request, 'landing.html')
-    
+
 def home(request):
 
     return render(request, 'home.html')
@@ -49,3 +49,14 @@ def logout(request):
 def profile(request):
     profile=Profile.objects.all()
     return render(request, 'profile.html',{'profile': profile})
+
+def create_profile(request,user_id):
+    user=User.objects.get(id=user_id)
+    form=ProfileForm(request.POST,request.FILES )
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+        messages.success(request,(' posted successfully!'))
+        
+        return redirect('home')
+    return render(request, 'update_profile.html',{'user':user,'form':form})
