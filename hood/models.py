@@ -7,7 +7,9 @@ class NeighbourHood(models.Model):
     location = models.CharField(max_length=60)
     admin = models.ForeignKey("Profile", on_delete=models.CASCADE, related_name='hood')
     description = models.TextField(max_length=500)
-    
+    health_tell = models.IntegerField(null=True, blank=True)
+    police_number = models.IntegerField(null=True, blank=True)
+
 
     def __str__(self):
         return f'{self.name} hood'

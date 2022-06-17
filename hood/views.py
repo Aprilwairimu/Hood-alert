@@ -81,3 +81,18 @@ def leave_hood(request, id):
     request.user.profile.neighbourhood = None
     request.user.profile.save()
     return redirect('hood')
+
+def search_business(request):
+    if request.method == 'GET':
+        name = request.GET.get("title")
+        results = Business.objects.filter(name__icontains=name).all()
+        print(results)
+        message = f'name'
+        params = {
+            'results': results,
+            'message': message
+        }
+        return render(request, 'results.html', params)
+    else:
+        message = "You haven't searched for any image category"
+    return render(request, "results.html")
