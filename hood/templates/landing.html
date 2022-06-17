@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/landing.css' %}">
+{% endblock %}
+
 {% block content %}
 <div class="container">
     <div class="text-white text-center" style="margin-top:15%">
@@ -8,7 +13,7 @@
         <img src="{% static 'images/landing.jpg' %}" height="500px" width="500px" alt="My image">
     
     </div> -->
-        <h1>Welcome to HoodWatch</h1>
+        <h1>Welcome to Hood-Alert</h1>
         <h5 style="margin-top:6%">Get Started by joining a hood today</h5>
 
     </div>

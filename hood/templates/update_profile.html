@@ -2,6 +2,10 @@
 {%load static%}
 
 
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/update.css' %}">
+{% endblock %}
+
 {% block content%}
 {%if form.errors%}
 
