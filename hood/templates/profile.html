@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{%load static%}
+
+
+{% block content%}
+
+<div class="row">
+    <div class="col-md-4">
+        {%if poster.image%}
+        <img src="{{poster.image.url}}" alt="" height="300px" width="300px" style="border-radius:250rem ;">
+        {%endif%}
+    </div>
+
+    <div class="col-md-4 ">
+        <div class="card card1" style="width: 18rem;">
+            <div class="card-header card1">
+                CONTACTS
+            </div>
+            <ul class="list-group list-group-flush ">
+                <li class="list-group-item">name: {{poster.name}}</li>
+                <li class="list-group-item">location: {{poster.location}}</li>
+                <li class="list-group-item">neighbourhood: {{poster.neighbourhood}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-4 ">
+        <div class="card card1">
+            <h5 class="card-header">BIO</h5>
+            <div class="card-body">
+                <h5 class="card-title">{{poster.bio}}</h5>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+{%endblock%}
