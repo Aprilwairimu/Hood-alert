@@ -7,9 +7,6 @@ from urllib import request
 from .models import Profile
 # Create your views here.
 
-def landing(request):
-
-    return render(request, 'landing.html')
 
 def home(request):
 
@@ -44,7 +41,7 @@ def login_user(request):
     return render(request,'register/login.html',{'form':form})
 
 def logout(request):
-    logout(request)
+    
     return redirect('home')
 
 
@@ -62,3 +59,25 @@ def create_profile(request,user_id):
         
         return redirect('home')
     return render(request, 'update_profile.html',{'user':user,'form':form})
+
+
+def create_post(request, hood_id):
+    hood = NeighbourHood.objects.get(id=hood_id)
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.hood = hood
+            post.user = request.user.profile
+            post.save()
+            return redirect('single-hood', hood.id)
+    else:
+        form = PostForm()
+    return render(request, 'post.html', {'form': form})
+
+
+def leave_hood(request, id):
+    hood = get_object_or_404(NeighbourHood, id=id)
+    request.user.profile.neighbourhood = None
+    request.user.profile.save()
+    return redirect('hood')
