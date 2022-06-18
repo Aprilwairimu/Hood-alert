@@ -74,6 +74,11 @@ def create_post(request):
         form = PostForm()
     return render(request, 'post.html', {'form': form, ' hood': hood})
 
+def join_hood(request, id):
+    neighbourhood = get_object_or_404(NeighbourHood, id=id)
+    request.user.profile.neighbourhood = neighbourhood
+    request.user.profile.save()
+    return redirect('hood')
 
 def leave_hood(request, id):
     hood = get_object_or_404(NeighbourHood, id=id)
