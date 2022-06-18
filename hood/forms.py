@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django import forms
 from django.forms import ModelForm
-from .models import Profile
+from .models import Profile, NeighbourHood, Business, Post
 
 class RegisterForm(UserCreationForm):
     email = forms.EmailField()
@@ -15,6 +15,23 @@ class RegisterForm(UserCreationForm):
 class LoginForm(forms.Form):
     username=forms.CharField(max_length=50)
     password=forms.CharField(max_length=20, widget=forms.PasswordInput)
+
+class NeighbourHoodForm(forms.ModelForm):
+    class Meta:
+        model = NeighbourHood
+        exclude = ('admin',)
+
+
+class BusinessForm(forms.ModelForm):
+    class Meta:
+        model = Business
+        exclude = ('user', 'neighbourhood')
+
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        exclude = ('user', 'hood')
 
 class ProfileForm(ModelForm):
     class Meta:
