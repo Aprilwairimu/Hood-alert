@@ -31,7 +31,7 @@ class BusinessForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        exclude = ('user', 'hood')
+        fields = ('__all__')
 
 class ProfileForm(ModelForm):
     class Meta:

@@ -1,10 +1,10 @@
 from django.shortcuts import render,redirect
 from django.http  import HttpResponse,Http404
-from .forms import RegisterForm,LoginForm
+from .forms import RegisterForm,LoginForm,PostForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from urllib import request
-from .models import Profile
+from .models import Profile,NeighbourHood,Post
 # Create your views here.
 
 
@@ -61,19 +61,18 @@ def create_profile(request,user_id):
     return render(request, 'update_profile.html',{'user':user,'form':form})
 
 
-def create_post(request, hood_id):
-    hood = NeighbourHood.objects.get(id=hood_id)
+def create_post(request):
+    hood = NeighbourHood.objects.all()
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            post.hood = hood
-            post.user = request.user.profile
+            
+            post.user = request.user
             post.save()
-            return redirect('single-hood', hood.id)
-    else:
+    else:   
         form = PostForm()
-    return render(request, 'post.html', {'form': form})
+    return render(request, 'post.html', {'form': form, ' hood': hood})
 
 
 def leave_hood(request, id):
