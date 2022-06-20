@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http  import HttpResponse,Http404
-from .forms import RegisterForm,LoginForm,PostForm
+from .forms import RegisterForm,LoginForm,PostForm,BusinessForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from urllib import request
@@ -75,6 +75,7 @@ def edit_profile(request, username):
 
 def create_post(request):
     hood = NeighbourHood.objects.all()
+    form=PostForm((request.POST,request.FILES))
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
@@ -99,7 +100,7 @@ def single_hood(request):
             b_form.neighbourhood = hood
             b_form.user = request.user.profile
             b_form.save()
-            return redirect('single-hood', hood.id)
+            return redirect('single-hood')
     else:
         form = BusinessForm()
     params = {
@@ -111,10 +112,9 @@ def single_hood(request):
     return render(request, 'single_hood.html', params)
 
 def join_hood(request):
-    neighbourhood = get_object_or_404(NeighbourHood)
-    request.user.profile.neighbourhood = neighbourhood
-    request.user.profile.save()
-    return redirect('hood')
+    
+    
+    return redirect('single_hood.html')
 
 def leave_hood(request):
     hood = get_object_or_404(NeighbourHood)
