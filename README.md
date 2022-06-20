@@ -17,13 +17,13 @@ Its accessible to users on both desktop and mobile formats and its responsive to
 - code . or atom . depending on your text editor
 ## USER STORIES
 
-   1.Sign in the application.
-    2.Set up a profile and a general location and my neighborhood name.
-    3.Find a list of different businesses in my neighborhood.
-    4.Find Contact Information for the health department and Police authorities near my neighborhood.
-    5.Create Posts that will be visible to everyone in my neighborhood.
-    6.Change My neighborhood when I decide to move out.
-    7.view details of a single neighborhood.
+1. Sign in the application.
+2. Set up a profile and a general location and my neighborhood name.
+3. Find a list of different businesses in my neighborhood.
+4. Find Contact Information for the health department and Police authorities near my neighborhood.
+5. Create Posts that will be visible to everyone in my neighborhood.
+6. Change My neighborhood when I decide to move out.
+7. view details of a single neighborhood.
 
 ### :information_desk_person: AUTHOR'S INFORMATION
 
