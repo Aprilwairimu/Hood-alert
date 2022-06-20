@@ -7,7 +7,7 @@
 
 ### PROJECT DESCRIPTION
 Hood-alert is a web application that allows you to be in the loop about everything happening in your neighborhood. From contact information of different handyman to meeting announcements or even alerts.
-Its accessible to users on both desktop and mobile formats and its responsive to different screen sizes.
+Residents of the same region can communicate with each other. Health and police department contact information is easily accessible. The user can also see nearby businesses.
 
 ### :pushpin:PROJECT SETUP INSTRUCTIONS
 

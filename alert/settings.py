@@ -13,7 +13,7 @@ import os
 from pathlib import Path
 import cloudinary
 import cloudinary.uploader
-import cloudinary
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'hood',
     'crispy_forms',
     'bootstrap4',
+    'cloudinary_storage',
+    'cloudinary',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -139,3 +141,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dolh6ghdb',
+    'API_KEY': '374975931497524',
+    'API_SECRET': 'ltvoUIS7w1y9GTS_AO50rSvZdhc'
+}
