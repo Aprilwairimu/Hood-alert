@@ -3,7 +3,7 @@
 This is a Neighbourhood Web-App that helps you connect with people who are living in the same region. Residents of the same region can communicate with each other. Health and police department contact information is easily accessible. The user can also see nearby businesses.
 
 ## Project preview
-![7220 Neighbourhood](./hoodapp/static/css/images/7220%20screenshot.png)
+![7220 Neighbourhood](./static/css/images/7220%20screenshot.png)
 
 ## contributors
 
