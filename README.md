@@ -2,7 +2,7 @@
 
 ## PROJECT PREVIEW
 
-![HOOD-ALERT](./static/images/Project-rater.png)
+![HOOD-ALERT](./static/css/images/hood%20screenshot.png)
 
 
 ### PROJECT DESCRIPTION
