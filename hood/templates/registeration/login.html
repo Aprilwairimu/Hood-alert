@@ -1,0 +1,21 @@
+{% extends 'django_registration/base_form.html' %}
+{% load bootstrap3 %}
+{% block content %}
+{{block.super}}
+
+<div class="container">
+    <form action="/accounts/login/" method="POST" id="reg-form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <div class="form-group">
+            <input type="submit" class="btn loginbtn" value="Log In">
+        </div>
+
+        <input type="hidden" name="next" value="/">
+
+    </form>
+    <div class="container">
+        <p class="text-center">Don't have an account? <a href="/accounts/register" style="color: red;">Register</a></p>
+    </div>
+</div>
+{% endblock %}
