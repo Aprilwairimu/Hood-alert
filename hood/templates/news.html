@@ -1,14 +1,17 @@
 {% extends 'base.html' %}
-
-{% block content %}
+{% load bootstrap3 %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content%}
+{% include "navbar.html" %}
 <div class="container">
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8 bg-white poster">
-            <h3 class="text-center tt ">Add a post to your hood</h3>
+            <h3 class="text-center tt ">Whats new?</h3>
             <form action="" method="post" novalidate>
                 {% csrf_token %}
-                {{ form.as_p }}
+                {{ form|crispy }}
                 <button type="submit" class="btn btn-sm btn-info "> Post</button>
             </form>
         </div>

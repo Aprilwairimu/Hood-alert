@@ -1,21 +1,18 @@
+
+from . import views
 from django.urls import path
-from . import views 
-from django.conf.urls.static import static
-from django.conf import settings
 
 
-urlpatterns =[
-    path('',views.home, name='home'),
-    path('register',views.register, name='register',),
-    path('login',views.login_user,name='login'),
-    path('logout',views.logout,name='logout'),
-    # path('create_profile/<user_id>', views.create_profile, name="create_profile"),
-    # path('profile/<str:pk>', views.profile, name="profile"),
-    # path('join_hood', views.join_hood, name='join-hood'),
-    # path('leave_hood', views.leave_hood, name='leave-hood'),
-    path('post', views.create_post, name='post'),
-    path('single_hood', views.single_hood, name='single-hood'),
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('profile/<username>', views.profile, name='profile'),
+    path('profile/<username>/edit/', views.edit_profile, name='edit-profile'),
+    path('new-hood/', views.new_hood, name='new-hood'),
+    path('view-hood/<hood_id>', views.view_hood, name='view-hood'),
+    path('view-hood/<hood_id>/new-business', views.add_business, name='add-business'),
+    path('join_hood/<id>', views.join_hood, name='join-hood'),
+    path('leave_hood/<id>', views.leave_hood, name='leave-hood'),
     path('search/', views.search_business, name='search'),
-
-
+    path('<hood_id>/members', views.hood_members, name= 'hood_members'),
+    path('<hood_id>/add-post', views.new_post, name='post'),
 ]

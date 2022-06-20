@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% load static %}
+{% block content%}
+{% include "navbar.html" %}
+<table class="table table-striped table-light">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for resident in residents%}
+        <tr>
+            <th scope="row">*</th>
+            <td>{{ resident.user.username }}</td>
+            <td>{{ resident.location}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
