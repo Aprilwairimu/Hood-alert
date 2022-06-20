@@ -123,16 +123,10 @@ def leave_hood(request):
     return redirect('hood')
 
 def search_business(request):
-    if request.method == 'GET':
-        name = request.GET.get("title")
-        results = Business.objects.filter(name__icontains=name).all()
-        print(results)
-        message = f'name'
-        params = {
-            'results': results,
-            'message': message
-        }
-        return render(request, 'results.html', params)
+    if request.method == 'POST':
+        title = request.POST["title"]
+        results = Business.objects.filter(name__contains=title)
+        
+        return render(request, 'results.html')
     else:
-        message = "You haven't searched for any image category"
-    return render(request, "results.html")
+        return render(request, "results.html")
